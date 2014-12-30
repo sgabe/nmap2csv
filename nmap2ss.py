@@ -72,7 +72,7 @@ print('[+] Found {} open ports on {} hosts!'.format(len(PORTS), len(IPS)))
 
 if PORTS:
   OUTPUT.append('0.0.0.0,' + ','.join(PORTS))
-  for ip in sorted(IPS):
+  for ip in sorted(IPS, key=lambda x:tuple(map(int, x.split('.')))):
     row = ip + ','
     for port in PORTS:
       if port in RESULTS[ip]:
