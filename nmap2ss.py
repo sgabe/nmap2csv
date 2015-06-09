@@ -61,8 +61,9 @@ for filename in FILES:
       m = re.search('[\(]?(\d+\.\d+\.\d+\.\d+)[\)]?$', i, re.M)
       if m:
         ip = m.group(1)
+        if ip not in IPS:
+          IPS.append(ip)
         ports = re.findall('^(\d+)\/.*open.*$', i, re.M)
-        IPS.append(ip)
         PORTS += ports
         RESULTS.update({ip : ports})
 
