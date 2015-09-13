@@ -63,7 +63,7 @@ for filename in FILES:
         ip = m.group(1)
         if ip not in IPS:
           IPS.append(ip)
-        ports = re.findall('^(\d+)\/.*open.*$', i, re.M)
+        ports = re.findall('^(\d+)\/.*\sopen\s.*$', i, re.M)
         PORTS += ports
         RESULTS.update({ip : ports})
 
