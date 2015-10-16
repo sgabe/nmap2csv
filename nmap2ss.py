@@ -65,7 +65,10 @@ for filename in FILES:
           IPS.append(ip)
         ports = re.findall('^(\d+)\/.*\sopen\s.*$', i, re.M)
         PORTS += ports
-        RESULTS.update({ip : ports})
+        if ip in RESULTS:
+          RESULTS[ip] += ports
+        else:
+          RESULTS.update({ip : ports})
 
 PORTS = sorted(set(PORTS), key=int)
 
