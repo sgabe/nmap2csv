@@ -1,16 +1,16 @@
 Nmap2SS
 =======
 
-**Nmap2SS** is a simple Python script to convert one or more normal (`-oN`) Nmap output files to a single CSV spreadsheet which summarizes all hosts and open ports in a table in `IP,PORT1,PORT2,PORT3,...,PORTN` format: The first row is the header with all open ports found on the scanned hosts. In the following rows the specified character (default `X`) marks if the given port was found open on the given host.
+**Nmap2SS** is a simple Python script to convert one or more XML (`-oX`) Nmap output files to a single CSV spreadsheet which summarizes all hosts and open ports in a table in `IP,PORT1,PORT2,PORT3,...,PORTN` format: The first row is the header with all open ports found on the scanned hosts. In the following rows the specified character (default `X`) marks if the given port was found open on the given host.
 
 ## Usage
 
-Pass the normal Nmap output (`-oN`) via a specified file or directory (`-i`). The resulted CSV spreadsheet is saved to a file (default is spreadsheet.csv) and can also be displayed on the console (`-v`).
+Pass the XML Nmap output (`-oX`) via a specified file or directory (`-i`). The resulted CSV spreadsheet is saved to a file (default is nmap2ss-summary-tcp.csv).
 
 ### Options
 ```
 $ python nmap2ss.py -h
-usage: nmap2ss.py [-h] [-i INPUT] [-o OUTPUT] [-m MARKER] [-v]
+usage: nmap2ss.py [-h] [-i INPUT] [-p PREFIX] [-s SUFFIX] [-m MARKER]
 
  _  _                 ___ ___ ___
 | \| |_ __  __ _ _ __|_  ) __/ __|
@@ -22,10 +22,10 @@ Nmap to CSV spreadsheet converter
 
 optional arguments:
   -h, --help  show this help message and exit
-  -i INPUT    Nmap output file or folder (default current folder)
-  -o OUTPUT   CSV output filename (default spreadsheet.csv)
+  -i INPUT    Scan output file or folder (default current folder)
+  -p PREFIX   prefix for output file names (default nmap2ss)
+  -s SUFFIX   suffix for output file names (default tcp)
   -m MARKER   marker character (default X)
-  -v          display output on console
 ```
 
 ### Example output
