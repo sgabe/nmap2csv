@@ -1,7 +1,7 @@
 #!/usr/bin/python
 
 '''
-Nmap2SS is a simple Python script to convert XML (-oX) Nmap or Masscan
+Nmap2CSV is a simple Python script to convert XML (-oX) Nmap or Masscan
 output files to a single CSV spreadsheet which summarizes all hosts and open
 ports in a table in IP,PORT1,PORT2,PORT3,...,PORTN format: The first row is
 the header with all open ports found on the scanned hosts. In the following
@@ -22,11 +22,11 @@ import xml.etree.ElementTree as ET
 from argparse import *
 
 description = textwrap.dedent('''\
-          _  _                 ___ ___ ___
-         | \| |_ __  __ _ _ __|_  ) __/ __|
-         | .` | '  \/ _` | '_ \/ /\__ \__ \\
-         |_|\_|_|_|_\__,_| .__/___|___/___/
-                         |_|
+       _  _                 ___ ___ _____   __
+      | \| |_ __  __ _ _ __|_  ) __/ __\ \ / /
+      | .` | '  \/ _` | '_ \/ / (__\__ \\\\ V / 
+      |_|\_|_|_|_\__,_| .__/___\___|___/ \_/  
+                      |_|                     
 
          Nmap to CSV spreadsheet converter
 ''')
@@ -34,7 +34,7 @@ description = textwrap.dedent('''\
 parser = ArgumentParser(formatter_class=RawDescriptionHelpFormatter, description=description)
 
 parser.add_argument('-i', metavar='INPUT', default='.', help='Scan output file or folder (default current folder)')
-parser.add_argument('-p', metavar='PREFIX', default='nmap2ss', help='prefix for output file names (default nmap2ss)')
+parser.add_argument('-p', metavar='PREFIX', default='nmap2csv', help='prefix for output file names (default nmap2csv)')
 parser.add_argument('-s', metavar='SUFFIX', default='tcp', help='suffix for output file names (default tcp)')
 parser.add_argument('-m', metavar='MARKER', default='X', help='marker character (default X)')
 
