@@ -12,7 +12,7 @@ includes version information, if it is available.
 
 __description__ = 'Nmap to CSV spreadsheet converter'
 __author__ = 'Gabor Seljan'
-__version__ = '0.3'
+__version__ = '0.2.1'
 __date__ = '2016/11/02'
 
 import os
